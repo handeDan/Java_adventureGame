@@ -4,6 +4,9 @@ Java ile metin tabanlı macera oyunu çalışması.
 A text-based adventure game project using Java.
 
 ## 📌 Proje Özeti / Project Overview
+
+![Project Preview](images/class-diagram.jpg)
+
 Bu proje, oyuncunun farklı mekanlarda savaşarak ve kaynak toplayarak ilerlediği bir metin tabanlı macera oyunudur. 
 Oyuncu, karakterini seçerek canavarlarla savaşır, mağazadan ekipman alır ve hayatta kalmaya çalışır.
 
