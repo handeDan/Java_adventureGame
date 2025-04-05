@@ -8,6 +8,8 @@ public class Player {
     private String name;
     private String charName;
 
+    private Scanner input = new Scanner(System.in);
+
     public Player(String name) {
         this.name = name;
     }
@@ -61,8 +63,42 @@ public class Player {
     }
 
     public void selectChar() {
-        Scanner input = new Scanner(System.in);
-        charName = input.nextLine();
-        System.out.println("You selected " + charName);
+        Character[] characters = {new Samurai(), new Archer(), new Knight()};
+
+        System.out.println("-------------------------------");
+        System.out.println("Characters :");
+        for (Character character : characters) {
+            System.out.println("ID = " + character.getId() + "  " +
+                    "Character = " + character.getName() + "     " +
+                    " Damage : " + character.getDamage() +
+                    " Health : " + character.getHealth() +
+                    " Money : " + character.getMoney());
+        }
+        System.out.println("-------------------------------");
+
+        System.out.println("Please choose a character by ID : ");
+        int selectChard = input.nextInt();
+        switch (selectChard) {
+            case 1:
+                initPlayer(new Samurai());
+                break;
+            case 2:
+                initPlayer(new Archer());
+                break;
+            case 3:
+                initPlayer(new Knight());
+                break;
+        }
+        System.out.println("Character selected : " + this.getCharName() + "     " +
+                " Damage : " + this.getDamage() +
+                " Health : " + this.getHealth() +
+                " Money : " + this.getMoney());
+    }
+
+    public void initPlayer(Character character) {
+        this.setDamage(character.getDamage());
+        this.setHealth(character.getHealth());
+        this.setMoney(character.getMoney());
+        this.setCharName(character.getName());
     }
 }

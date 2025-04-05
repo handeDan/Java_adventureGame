@@ -12,8 +12,8 @@ public class Game {
         System.out.println("Please enter a name : ");
         String playerName = input.nextLine();
 
-       Player newPlayer = new Player(playerName);
-        System.out.println("Welcome " + newPlayer.getName() + " to the game!");
+       this.player = new Player(playerName);
+        System.out.println("Welcome " + player.getName() + " to the game!");
         System.out.println("Please select a character : ");
         player.selectChar();
     }
