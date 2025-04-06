@@ -116,6 +116,8 @@ public class Player {
         System.out.println("-------------------------------");
         System.out.println("Character : " + this.getCharName() + "     " +
                 " Weapon : " + this.getInventory().getWeapon().getName() +
+                " Armor : " + this.getInventory().getArmor().getName() +
+                " Block : " + this.getInventory().getArmor().getBlock() +
                 " Damage : " + this.getDamage() +
                 " Health : " + this.getHealth() +
                 " Money : " + this.getMoney());
