@@ -19,6 +19,7 @@ public class Game {
         Location location = null;
 
         while(true) {
+            player.printInfo();
             System.out.println("           ");
             System.out.println("### Locations ###");
             System.out.println("1. Safe House :  here, it's a safe house for you, no enemy!");

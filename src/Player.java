@@ -7,15 +7,17 @@ public class Player {
     private int armor;
     private String name;
     private String charName;
+    private Inventory inventory;
 
     private Scanner input = new Scanner(System.in);
 
     public Player(String name) {
         this.name = name;
+        this.inventory = new Inventory();
     }
 
     public int getDamage() {
-        return damage;
+        return damage + this.getInventory().getWeapon().getDamage();
     }
 
     public void setDamage(int damage) {
@@ -62,6 +64,14 @@ public class Player {
         this.charName = charName;
     }
 
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
+    }
+
     public void selectChar() {
         Character[] characters = {new Samurai(), new Archer(), new Knight()};
 
@@ -89,10 +99,10 @@ public class Player {
                 initPlayer(new Knight());
                 break;
         }
-        System.out.println("Character selected : " + this.getCharName() + "     " +
+        /*System.out.println("Character selected : " + this.getCharName() + "     " +
                 " Damage : " + this.getDamage() +
                 " Health : " + this.getHealth() +
-                " Money : " + this.getMoney());
+                " Money : " + this.getMoney()); */
     }
 
     public void initPlayer(Character character) {
@@ -100,5 +110,15 @@ public class Player {
         this.setHealth(character.getHealth());
         this.setMoney(character.getMoney());
         this.setCharName(character.getName());
+    }
+
+    public void printInfo() {
+        System.out.println("-------------------------------");
+        System.out.println("Character : " + this.getCharName() + "     " +
+                " Weapon : " + this.getInventory().getWeapon().getName() +
+                " Damage : " + this.getDamage() +
+                " Health : " + this.getHealth() +
+                " Money : " + this.getMoney());
+        System.out.println("-------------------------------");
     }
 }
