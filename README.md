@@ -1,4 +1,4 @@
-# Adventure Game with Java
+# Adventure com.adventuregame.main.Game with Java
 Java ile metin tabanlı macera oyunu çalışması.
 
 A text-based adventure game project using Java.
@@ -38,17 +38,17 @@ The player selects a character, battles monsters, purchases equipment from the s
 ✔ Güvenli Ev / Safe House
 Özellik : Can Yenileniyor / Feature : Regenerating Health
 ✔ Mağara / Cave
-Canavar : Zombi (1-3 Adet) / Monster : Zombie (1-3)
+Canavar : Zombi (1-3 Adet) / com.adventuregame.monsters.Monster : com.adventuregame.monsters.Zombie (1-3)
 Eşya : Yemek / Item : Food
 ✔ Orman / Forest
-Canavar : Vampir (1-3 Adet) / Monster : Vampire (1-3)
+Canavar : Vampir (1-3 Adet) / com.adventuregame.monsters.Monster : com.adventuregame.monsters.Vampire (1-3)
 Özellik : Savaş + Ganimet / Feature : Fighting + Hunting
 Eşya : Odun / Item : Firewood
 ✔ Nehir / River
-Canavar : Ayı (1-3 Adet) / Monster : Bear (1-3)
+Canavar : Ayı (1-3 Adet) / com.adventuregame.monsters.Monster : com.adventuregame.monsters.Bear (1-3)
 Özellik : Savaş + Ganimet / Feature : Fighting + Hunting
 Eşya : Su / Item : Water
 ✔ Mağaza / Toolstore
 Özellik : Destekleyici Eşyalar Satın Almak / Feature : Purchase Support Items
-Silah : Tabanca,Kılıç,Tüfek / Weapon : Pistol,Sword,Rifle
-Zırh : Hafif,Orta,Ağır / Armor : Light,Medium,Heavy
+Silah : Tabanca,Kılıç,Tüfek / com.adventuregame.inventory.Weapon : Pistol,Sword,Rifle
+Zırh : Hafif,Orta,Ağır / com.adventuregame.inventory.Armor : Light,Medium,Heavy
