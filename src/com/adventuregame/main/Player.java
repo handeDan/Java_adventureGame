@@ -12,6 +12,7 @@ import java.util.Scanner;
 public class Player {
     private int damage;
     private int health;
+    private int orginalHealth;
     private int money;
     private int armor;
     private String name;
@@ -76,6 +77,14 @@ public class Player {
         this.charName = charName;
     }
 
+    public int getOrginalHealth() {
+        return orginalHealth;
+    }
+
+    public void setOrginalHealth(int orginalHealth) {
+        this.orginalHealth = orginalHealth;
+    }
+
     public Inventory getInventory() {
         return inventory;
     }
@@ -124,6 +133,7 @@ public class Player {
     public void initPlayer(Character character) {
         this.setDamage(character.getDamage());
         this.setHealth(character.getHealth());
+        this.setOrginalHealth(character.getHealth());
         this.setMoney(character.getMoney());
         this.setCharName(character.getName());
     }

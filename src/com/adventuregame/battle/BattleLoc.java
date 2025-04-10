@@ -33,6 +33,11 @@ public class BattleLoc extends Location {
                 return true;
         }
 
+        if (selectCase.equals("R")) {
+            System.out.println("You ran away!");
+            return false;
+        }
+
         if(this.getPlayer().getHealth() <= 0) {
             System.out.println("You have been defeated!");
             return false;
@@ -77,8 +82,8 @@ public class BattleLoc extends Location {
                     if (this.getPlayer().getHealth() <= 0) {
                         return false;
                     }
-
                 } else {
+                    System.out.println("You ran away!");
                     return false;
                 }
 
