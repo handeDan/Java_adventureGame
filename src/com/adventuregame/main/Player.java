@@ -5,6 +5,7 @@ import com.adventuregame.characters.Character;
 import com.adventuregame.characters.Knight;
 import com.adventuregame.characters.Samurai;
 import com.adventuregame.inventory.Inventory;
+import com.adventuregame.inventory.Weapon;
 
 import java.util.Scanner;
 
@@ -24,8 +25,11 @@ public class Player {
         this.inventory = new Inventory();
     }
 
-    public int getDamage() {
+    public int getTotalDamage() {
         return damage + this.getInventory().getWeapon().getDamage();
+    }
+    public int getDamage() {
+        return damage;
     }
 
     public void setDamage(int damage) {
@@ -113,6 +117,10 @@ public class Player {
                 " Money : " + this.getMoney()); */
     }
 
+    public Weapon getWeapon() {
+        return this.getInventory().getWeapon();
+    }
+
     public void initPlayer(Character character) {
         this.setDamage(character.getDamage());
         this.setHealth(character.getHealth());
@@ -126,7 +134,7 @@ public class Player {
                 " Weapon : " + this.getInventory().getWeapon().getName() +
                 " Armor : " + this.getInventory().getArmor().getName() +
                 " Block : " + this.getInventory().getArmor().getBlock() +
-                " Damage : " + this.getDamage() +
+                " Damage : " + this.getTotalDamage() +
                 " Health : " + this.getHealth() +
                 " Money : " + this.getMoney());
         System.out.println("-------------------------------");
