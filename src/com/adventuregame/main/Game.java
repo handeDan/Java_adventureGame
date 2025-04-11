@@ -2,6 +2,7 @@ package com.adventuregame.main;
 
 import com.adventuregame.battle.Cave;
 import com.adventuregame.battle.Forest;
+import com.adventuregame.battle.Mine;
 import com.adventuregame.battle.River;
 import com.adventuregame.location.Location;
 import com.adventuregame.location.SafeHouse;
@@ -36,6 +37,7 @@ public class Game {
             System.out.println("3. Cave : award is food! but here, you can face a zombie!");
             System.out.println("4. Forest : award is firewood! but here, you can face a vampire!");
             System.out.println("5. River : award is water! but here, you can face a bear!");
+            System.out.println("6. Mine : award is weapon/armor/money or nothing! but here, you can face a snake!");
             System.out.println("0. Exit : here, you can exit the game!");
             System.out.println("Please choose a location : ");
 
@@ -47,6 +49,7 @@ public class Game {
                 case 3 -> new Cave(player);
                 case 4 -> new Forest(player);
                 case 5 -> new River(player);
+                case 6 -> new Mine(player);
                 default -> {
                     System.out.println("Please choose a valid location!");
                     yield null;
@@ -62,6 +65,8 @@ public class Game {
                 System.out.println("GAME OVER!");
                 break;
             }
+
+
 
         }
     }

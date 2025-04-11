@@ -53,11 +53,12 @@ public class BattleLoc extends Location {
             playerStats();
             monsterStats(i);
 
-            while (this.getPlayer().getHealth() > 0 && this.getMonster().getHealth() > 0) {
-                System.out.println("<A>ttack or <R>un away!");
-                String selectCase = input.nextLine().toUpperCase();
+            // Oyuncunun ilk vuruşu yapma ihtimalini %51 olarak belirliyoruz:
+            boolean playerFirst = Math.random() < 0.51;
 
-                if (selectCase.equals("A")) {
+            while (this.getPlayer().getHealth() > 0 && this.getMonster().getHealth() > 0) {
+                if (playerFirst) {
+                    // Oyuncu ilk vuruşu yapar
                     System.out.println("You attack the " + this.getMonster().getName() + "!");
                     this.getMonster().setHealth(this.getMonster().getHealth() - this.getPlayer().getTotalDamage());
                     afterAttack();
@@ -68,6 +69,7 @@ public class BattleLoc extends Location {
                         break;
                     }
 
+                    // Canavarın vuruşu
                     System.out.println("The " + this.getMonster().getName() + " attacks you!");
 
                     int monsterDamage = this.getMonster().getDamage() - this.getPlayer().getInventory().getArmor().getBlock();
@@ -83,8 +85,32 @@ public class BattleLoc extends Location {
                         return false;
                     }
                 } else {
-                    System.out.println("You ran away!");
-                    return false;
+                    // Canavar ilk vuruşu yapar
+                    System.out.println("The " + this.getMonster().getName() + " attacks you!");
+
+                    int monsterDamage = this.getMonster().getDamage() - this.getPlayer().getInventory().getArmor().getBlock();
+
+                    if (monsterDamage < 0) {
+                        monsterDamage = 0;
+                    }
+
+                    this.getPlayer().setHealth(this.getPlayer().getHealth() - monsterDamage);
+                    afterAttack();
+
+                    if (this.getPlayer().getHealth() <= 0) {
+                        return false;
+                    }
+
+                    // Oyuncunun vuruşu
+                    System.out.println("You attack the " + this.getMonster().getName() + "!");
+                    this.getMonster().setHealth(this.getMonster().getHealth() - this.getPlayer().getTotalDamage());
+                    afterAttack();
+
+                    if (this.getMonster().getHealth() <= 0) {
+                        System.out.println("You defeated the " + this.getMonster().getName() + "!");
+                        this.getPlayer().setMoney(this.getPlayer().getMoney() + this.getMonster().getAward());
+                        break;
+                    }
                 }
 
             }

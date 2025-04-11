@@ -149,4 +149,7 @@ public class Player {
                 " Money : " + this.getMoney());
         System.out.println("-------------------------------");
     }
+
+    public void setLocationLock(String cave, boolean b) {
+    }
 }
